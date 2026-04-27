@@ -12,7 +12,8 @@ IncludeDir["glm"] = "vendor/glm"
 IncludeDir["imgui"] = "vendor/imgui"
 
 group "Dependencies"
-    include "vendor/SDL"
+    include "vendor/premake/SDL.lua"
+    include "vendor/premake/imgui.lua"
 group ""
 
 include "Engine/Core"
