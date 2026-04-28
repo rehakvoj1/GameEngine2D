@@ -5,7 +5,7 @@ project "Render"
     cppdialect "C++20"
     staticruntime "off"
 
-    targetdir ("bin/" .. outputdir .. "/%{prj.name}")
+    targetdir ("bin/" .. outputdir)
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
     ----------------------------------------
@@ -15,10 +15,9 @@ project "Render"
         "Engine/Render/src/**.h",
         "Engine/Render/src/**.cpp",
 
-        -- ImGui backends (platform + renderer)
+        -- ImGui backends
         "vendor/imgui/backends/imgui_impl_sdl3.cpp",
         "vendor/imgui/backends/imgui_impl_dx12.cpp"
-        -- Vulkan backend se přidá podmíněně níže
     }
 
     ----------------------------------------
@@ -47,7 +46,7 @@ project "Render"
         systemversion "latest"
         defines { "RENDER_BUILD_DLL", "PLATFORM_WINDOWS" }
 
-        -- DirectX 12 (Windows SDK)
+        -- DirectX 12
         links {
             "d3d12",
             "dxgi",
@@ -76,7 +75,6 @@ project "Render"
 
             defines { "RENDER_HAS_VULKAN" }
 
-            -- přidání ImGui Vulkan backendu
             files {
                 "vendor/imgui/backends/imgui_impl_vulkan.cpp"
             }

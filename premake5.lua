@@ -4,16 +4,18 @@ workspace "Engine"
 
     configurations { "Debug", "Release" }
 
+    flags { "MultiProcessorCompile" }
+
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
-IncludeDir["SDL"] = "vendor/SDL/include"
-IncludeDir["glm"] = "vendor/glm"
+IncludeDir["SDL"]   = "vendor/SDL/include"
+IncludeDir["glm"]   = "vendor/glm"
 IncludeDir["imgui"] = "vendor/imgui"
 
 group "Dependencies"
-    include "vendor/premake/SDL.lua"
-    include "vendor/premake/imgui.lua"
+    include "vendor/SDL"
+    include "vendor/imgui"
 group ""
 
 include "Engine/Core"

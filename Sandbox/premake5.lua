@@ -3,8 +3,9 @@ project "Sandbox"
     kind "ConsoleApp"
     language "C++"
     cppdialect "C++20"
+    staticruntime "off"
 
-    targetdir ("bin/" .. outputdir .. "/%{prj.name}")
+    targetdir ("bin/" .. outputdir)
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
     files {
@@ -20,3 +21,15 @@ project "Sandbox"
         "Core",
         "Render"
     }
+
+    dependson { "Core", "Render" }
+
+    filter "configurations:Debug"
+        runtime "Debug"
+        symbols "On"
+
+    filter "configurations:Release"
+        runtime "Release"
+        optimize "On"
+
+    filter {}
