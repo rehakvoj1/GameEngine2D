@@ -4,16 +4,16 @@ project "ImGui"
     cppdialect "C++20"
     staticruntime "off"
 
-    targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-    objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+    targetdir ("%{ROOT_DIR}build/bin/" .. outputdir .. "/%{prj.name}")
+    objdir ("%{ROOT_DIR}build/bin-int/" .. outputdir .. "/%{prj.name}")
 
     files {
-        "vendor/imgui/*.cpp",
-        "vendor/imgui/*.h"
+        "%{ROOT_DIR}vendor/imgui/*.cpp",
+        "%{ROOT_DIR}vendor/imgui/*.h"
     }
 
     includedirs {
-        "vendor/imgui"
+        "%{ROOT_DIR}vendor/imgui"
     }
 
     filter "configurations:Debug"

@@ -1,33 +1,38 @@
 project "Render"
-    location "Engine/Render"
     kind "SharedLib"
     language "C++"
     cppdialect "C++20"
     staticruntime "off"
 
-    targetdir ("bin/" .. outputdir)
-    objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+    targetdir ("%{ROOT_DIR}build/bin/" .. outputdir)
+    objdir ("%{ROOT_DIR}build/bin-int/" .. outputdir .. "/%{prj.name}")
 
     ----------------------------------------
     -- SOURCE FILES
     ----------------------------------------
     files {
-        "Engine/Render/src/**.h",
-        "Engine/Render/src/**.cpp",
+        "%{ROOT_DIR}Engine/Render/src/**.h",
+        "%{ROOT_DIR}Engine/Render/src/**.cpp",
 
         -- ImGui backends
-        "vendor/imgui/backends/imgui_impl_sdl3.cpp",
-        "vendor/imgui/backends/imgui_impl_dx12.cpp"
+        "%{ROOT_DIR}vendor/imgui/backends/imgui_impl_sdl3.cpp",
+        "%{ROOT_DIR}vendor/imgui/backends/imgui_impl_dx12.cpp"
+    }
+
+    vpaths {
+    ["Header Files"] = { "**.h" },
+    ["Source Files"] = { "**.cpp" },
+    ["ImGui"] = { "**imgui_impl_*" }
     }
 
     ----------------------------------------
     -- INCLUDE DIRECTORIES
     ----------------------------------------
     includedirs {
-        "Engine/Core/src",
+        "%{ROOT_DIR}Engine/Core/src",
         "%{IncludeDir.glm}",
         "%{IncludeDir.imgui}",
-        "vendor/imgui/backends"
+        "%{ROOT_DIR}vendor/imgui/backends"
     }
 
     ----------------------------------------
@@ -76,7 +81,7 @@ project "Render"
             defines { "RENDER_HAS_VULKAN" }
 
             files {
-                "vendor/imgui/backends/imgui_impl_vulkan.cpp"
+                "%{ROOT_DIR}vendor/imgui/backends/imgui_impl_vulkan.cpp"
             }
         else
             print("WARNING: VULKAN_SDK not set. Vulkan backend will be disabled.")

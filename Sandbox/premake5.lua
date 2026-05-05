@@ -1,20 +1,19 @@
 project "Sandbox"
-    location "Sandbox"
     kind "ConsoleApp"
     language "C++"
     cppdialect "C++20"
     staticruntime "off"
 
-    targetdir ("bin/" .. outputdir)
-    objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+    targetdir ("%{ROOT_DIR}build/bin/" .. outputdir)
+    objdir ("%{ROOT_DIR}build/bin-int/" .. outputdir .. "/%{prj.name}")
 
     files {
-        "Sandbox/src/**.cpp"
+        "%{ROOT_DIR}Sandbox/src/**.cpp"
     }
 
     includedirs {
-        "Engine/Core/src",
-        "Engine/Render/src"
+        "%{ROOT_DIR}Engine/Core/src",
+        "%{ROOT_DIR}Engine/Render/src"
     }
 
     links {

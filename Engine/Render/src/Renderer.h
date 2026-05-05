@@ -1,6 +1,7 @@
 #pragma once
+#include "Render.h"
 
-class Renderer
+class RENDER_API Renderer
 {
 public:
     static void Init();

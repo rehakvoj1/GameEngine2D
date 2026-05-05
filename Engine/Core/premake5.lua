@@ -1,19 +1,20 @@
 project "Core"
-    location "Engine/Core"
     kind "SharedLib"
     language "C++"
     cppdialect "C++20"
     staticruntime "off"
 
-    targetdir ("bin/" .. outputdir)
-    objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
-
-    pchheader "Core.h"
-    pchsource "Engine/Core/src/Core.cpp"
+    targetdir ("%{ROOT_DIR}build/bin/" .. outputdir)
+    objdir ("%{ROOT_DIR}build/bin-int/" .. outputdir .. "/%{prj.name}")
 
     files {
-        "Engine/Core/src/**.h",
-        "Engine/Core/src/**.cpp"
+        "%{ROOT_DIR}Engine/Core/src/**.h",
+        "%{ROOT_DIR}Engine/Core/src/**.cpp"
+    }
+    
+    vpaths {
+        ["Header Files"] = { "**.h" },
+        ["Source Files"] = { "**.cpp" },
     }
 
     includedirs {
