@@ -1,18 +1,23 @@
 @echo off
+setlocal
+
+set "ROOT_DIR=%~dp0.."
+pushd "%ROOT_DIR%" >nul
 
 echo Cleaning build directories...
 
-if exist bin rmdir /s /q bin
-if exist bin-int rmdir /s /q bin-int
+if exist build\bin rmdir /s /q build\bin
+if exist build\bin-int rmdir /s /q build\bin-int
 
 echo Cleaning Visual Studio files...
 
-if exist .vs rmdir /s /q .vs
+if exist build\.vs rmdir /s /q build\.vs
 
-del /s /q *.sln >nul 2>&1
-del /s /q *.vcxproj >nul 2>&1
-del /s /q *.vcxproj.filters >nul 2>&1
-del /s /q *.vcxproj.user >nul 2>&1
+del /q build\*.sln >nul 2>&1
+del /q build\*.vcxproj >nul 2>&1
+del /q build\*.vcxproj.filters >nul 2>&1
+del /q build\*.vcxproj.user >nul 2>&1
 
 echo Clean complete!
+popd >nul
 pause
