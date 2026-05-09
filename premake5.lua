@@ -26,4 +26,9 @@ group ""
 
 include "Engine/Core"
 include "Engine/Render"
-include "Sandbox"
+
+group "Executables"
+    include "Applications/Sandbox"
+    include "Applications/Game"
+    include "Applications/Editor"
+group ""

@@ -8,7 +8,8 @@ project "Sandbox"
     objdir ("%{ROOT_DIR}build/bin-int/" .. outputdir .. "/%{prj.name}")
 
     files {
-        "%{ROOT_DIR}Sandbox/src/**.cpp"
+        "%{ROOT_DIR}Applications/Sandbox/src/**.h",
+        "%{ROOT_DIR}Applications/Sandbox/src/**.cpp"
     }
 
     includedirs {
