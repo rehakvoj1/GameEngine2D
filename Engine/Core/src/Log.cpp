@@ -8,11 +8,6 @@ namespace GE2D
 {
 void Log::Init()
 {
-	GE2D_TRACE("TRACE test");
-	GE2D_INFO("INFO test");
-	GE2D_WARN("WARN test");
-	GE2D_ERROR("ERROR test");
-	GE2D_FATAL("FATAL test");
 	GE2D_INFO("Logger initialized...");
 }
 
