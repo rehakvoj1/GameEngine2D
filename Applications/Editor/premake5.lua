@@ -25,10 +25,12 @@ project "Editor"
     dependson { "Core", "Render" }
 
     filter "configurations:Debug"
+        defines "DEBUG"
         runtime "Debug"
         symbols "On"
 
     filter "configurations:Release"
+        defines "RELEASE"
         runtime "Release"
         optimize "On"
 

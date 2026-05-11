@@ -1,6 +1,7 @@
 #include "RuntimeConfig.h"
 #include "Runtime.h"
 #include "Sandbox.h"
+#include "Log.h"
 
 
 int main()
@@ -13,5 +14,6 @@ int main()
 	GE2D::Runtime runtime(config);
 	SandboxApp app;
 
+	APP_INFO("Starting app: " << config.t_AppName);
 	return runtime.Run(app);
 }

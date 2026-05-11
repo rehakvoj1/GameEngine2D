@@ -76,7 +76,7 @@ int Runtime::Run(IApplication& app)
 //===========================================================
 void Runtime::Shutdown()
 {
-
+	GE2D_INFO("Shutting down...");
 }
 
 }

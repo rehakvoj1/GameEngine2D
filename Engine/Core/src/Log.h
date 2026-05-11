@@ -35,13 +35,13 @@ private:
 // Internal helper
 // =========================================================
 #ifdef DEBUG
-	#define GE2D_LOG(level, tag, msg) \
-	    do \
-	    { \
-	        std::stringstream ss; \
-	        ss << msg; \
-	        GE2D::Log::Print(level, tag, ss.str()); \
-	    } while (0)
+	#define GE2D_LOG(level, tag, ...) \
+		do \
+		{ \
+			std::stringstream ss; \
+			ss << __VA_ARGS__; \
+			GE2D::Log::Print(level, tag, ss.str()); \
+		} while (0)
 	
 	// =========================================================
 	// Engine logs
