@@ -6,6 +6,7 @@
 namespace GE2D
 {
 
+
 // =========================================================
 enum class LogLevel
 {
@@ -15,6 +16,7 @@ enum class LogLevel
 	Error,
 	Fatal
 };
+
 
 // =========================================================
 class CORE_API Log
@@ -29,7 +31,8 @@ private:
 	static const char* LevelToColor(LogLevel level);
 };
 
-}
+
+} // GE2D namespace
 
 // =========================================================
 // Internal helper
@@ -43,10 +46,10 @@ private:
 			GE2D::Log::Print(level, tag, ss.str()); \
 		} while (0)
 	
+
 	// =========================================================
 	// Engine logs
 	// =========================================================
-	
 	#define GE2D_TRACE(msg) GE2D_LOG(GE2D::LogLevel::Trace, "ENGINE", msg)
 	#define GE2D_INFO(msg)  GE2D_LOG(GE2D::LogLevel::Info,  "ENGINE", msg)
 	#define GE2D_WARN(msg)  GE2D_LOG(GE2D::LogLevel::Warn,  "ENGINE", msg)
@@ -56,7 +59,6 @@ private:
 	// =========================================================
 	// Client logs
 	// =========================================================
-	
 	#define APP_TRACE(msg) GE2D_LOG(GE2D::LogLevel::Trace, "APP", msg)
 	#define APP_INFO(msg)  GE2D_LOG(GE2D::LogLevel::Info,  "APP", msg)
 	#define APP_WARN(msg)  GE2D_LOG(GE2D::LogLevel::Warn,  "APP", msg)

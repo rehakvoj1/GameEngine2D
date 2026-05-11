@@ -6,6 +6,7 @@ namespace GE2D
 
 //class RenderContext;
 
+//===========================================================
 class IApplication
 {
 public:
@@ -17,4 +18,6 @@ public:
 	//virtual void OnRender(RenderContext& renderContext) {}
 	virtual void OnShutdown() {}
 };
-}
+
+
+} // GE2D namespace

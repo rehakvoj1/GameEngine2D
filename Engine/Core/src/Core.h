@@ -1,5 +1,7 @@
 #pragma once
 
+
+//===========================================================
 #ifdef CORE_BUILD_DLL
     #define CORE_API __declspec(dllexport)
 #else

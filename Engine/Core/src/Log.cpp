@@ -6,11 +6,14 @@
 
 namespace GE2D
 {
+//===========================================================
 void Log::Init()
 {
 	GE2D_INFO("Logger initialized...");
 }
 
+
+//===========================================================
 void Log::Print(LogLevel level, const std::string& tag, const std::string& message)
 {
 	auto now = std::chrono::system_clock::now();
@@ -35,6 +38,8 @@ void Log::Print(LogLevel level, const std::string& tag, const std::string& messa
 		<< std::endl;
 }
 
+
+//===========================================================
 const char* Log::LevelToString(LogLevel level)
 {
 	switch (level)
@@ -49,6 +54,8 @@ const char* Log::LevelToString(LogLevel level)
 	return "UNKNOWN";
 }
 
+
+//===========================================================
 const char* Log::LevelToColor(LogLevel level)
 {
 	switch (level)
@@ -62,4 +69,6 @@ const char* Log::LevelToColor(LogLevel level)
 
 	return "\033[0m";
 }
-}
+
+
+} // GE2D namespace

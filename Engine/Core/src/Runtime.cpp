@@ -6,8 +6,6 @@
 
 namespace GE2D 
 {
-
-
 	
 
 //===========================================================
@@ -17,6 +15,7 @@ Runtime::Runtime(RuntimeConfig& config) :
 
 }
 
+
 //===========================================================
 bool Runtime::Initialize()
 {
@@ -25,6 +24,7 @@ bool Runtime::Initialize()
 	m_Running = true;
 	return true;
 }
+
 
 //===========================================================
 int Runtime::Run(IApplication& app)
@@ -73,10 +73,12 @@ int Runtime::Run(IApplication& app)
 	return 0;
 }
 
+
 //===========================================================
 void Runtime::Shutdown()
 {
 	GE2D_INFO("Shutting down...");
 }
 
-}
+
+} // GE2D namespace

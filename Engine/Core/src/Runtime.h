@@ -23,4 +23,5 @@ private:
 	RuntimeConfig& m_config;
 };
 
-}
+
+} // GE2D namespace
