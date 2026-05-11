@@ -2,6 +2,7 @@
 #include <iostream>
 
 #include "Runtime.h"
+#include "Log.h"
 
 namespace GE2D 
 {
@@ -19,6 +20,8 @@ Runtime::Runtime(RuntimeConfig& config) :
 //===========================================================
 bool Runtime::Initialize()
 {
+	GE2D_INFO("Initializing...");
+	Log::Init();
 	m_Running = true;
 	return true;
 }
@@ -39,6 +42,7 @@ int Runtime::Run(IApplication& app)
 	float accumulator = 0.0f;
 	TimePoint previous = Clock::now();
 
+	GE2D_INFO("Runtime running...");
 	while (m_Running)
 	{
 		TimePoint current = Clock::now();
