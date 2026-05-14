@@ -109,14 +109,23 @@ Runtime initializes:
 Typical frame structure:
 
 ```text
-Poll Window Events
-Update Input
-Begin Frame
-Update ECS Systems
-Update Layers
-Render Frame
-Present Swapchain
+PreFrame
+PlatformEvents
+Input
+NetworkReceive
+PreSimulation
+FixedSimulation
+PostSimulation
+Animation
+Audio
+RenderPreparation
+Render
+NetworkSend
+EndFrame
 ```
+
+`FixedSimulation` runs with a fixed timestep and may execute zero or more times
+per rendered frame. Rendering is optional and skipped for headless runtimes.
 
 ---
 
@@ -209,15 +218,13 @@ Architecture degradation has started.
 
 # Frame Contexts
 
-Future versions of GE2D may introduce scoped contexts.
+GE2D uses scoped contexts for frame and simulation callbacks.
 
 Examples:
 
 ```cpp
-RenderContext
 FrameContext
-SceneContext
-EditorContext
+SimulationContext
 ```
 
 Purpose:

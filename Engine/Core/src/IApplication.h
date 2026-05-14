@@ -1,10 +1,42 @@
 #pragma once
 
-namespace GE2D
+#include <cstdint>
+
+namespace GE2D {
+
+
+//===========================================================
+enum class FramePhase
 {
+	PreFrame,
+	PlatformEvents,
+	Input,
+	NetworkReceive,
+	PreSimulation,
+	FixedSimulation,
+	PostSimulation,
+	Animation,
+	Audio,
+	RenderPreparation,
+	Render,
+	NetworkSend,
+	EndFrame
+};
 
+//===========================================================
+struct FrameContext
+{
+	double DeltaTime{ 0.0 };
+	double InterpolationAlpha{ 0.0 };
+	std::uint64_t FrameIndex{ 0 };
+};
 
-//class RenderContext;
+//===========================================================
+struct SimulationContext
+{
+	double FixedDeltaTime{ 0.0 };
+	std::uint64_t TickIndex{ 0 };
+};
 
 //===========================================================
 class IApplication
@@ -13,9 +45,21 @@ public:
 	virtual ~IApplication() = default;
 
 	virtual void OnInit() {}
-	virtual void OnUpdate(float deltaTime) {}
-	virtual void OnFixedUpdate(float fixedDeltaTime) {}
-	//virtual void OnRender(RenderContext& renderContext) {}
+	virtual bool ShouldQuit() const { return false; }
+
+	virtual void OnPreFrame(const FrameContext&) {}
+	virtual void OnPlatformEvents(const FrameContext&) {}
+	virtual void OnInput(const FrameContext&) {}
+	virtual void OnNetworkReceive(const FrameContext&) {}
+	virtual void OnPreSimulation(const FrameContext&) {}
+	virtual void OnFixedUpdate(const SimulationContext&) {}
+	virtual void OnPostSimulation(const FrameContext&) {}
+	virtual void OnAnimation(const FrameContext&) {}
+	virtual void OnAudio(const FrameContext&) {}
+	virtual void OnRenderPreparation(const FrameContext&) {}
+	virtual void OnRender(const FrameContext&) {}
+	virtual void OnNetworkSend(const FrameContext&) {}
+	virtual void OnEndFrame(const FrameContext&) {}
 	virtual void OnShutdown() {}
 };
 

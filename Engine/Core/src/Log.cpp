@@ -4,8 +4,8 @@
 
 #include "Log.h"
 
-namespace GE2D
-{
+namespace GE2D {
+
 //===========================================================
 void Log::Init()
 {

@@ -3,8 +3,7 @@
 
 #include "Core.h"
 
-namespace GE2D
-{
+namespace GE2D {
 
 
 // =========================================================
