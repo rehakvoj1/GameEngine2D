@@ -124,6 +124,7 @@ int Runtime::Run(IApplication& app)
 
 		frameContext.InterpolationAlpha = accumulator / m_config.t_FixedTimeStep;
 
+		app.OnUpdate(frameContext);
 		app.OnPostSimulation(frameContext);
 
 		if (!m_config.t_Headless)

@@ -53,6 +53,7 @@ public:
 	virtual void OnNetworkReceive(const FrameContext&) {}
 	virtual void OnPreSimulation(const FrameContext&) {}
 	virtual void OnFixedUpdate(const SimulationContext&) {}
+	virtual void OnUpdate(const FrameContext&) {}
 	virtual void OnPostSimulation(const FrameContext&) {}
 	virtual void OnAnimation(const FrameContext&) {}
 	virtual void OnAudio(const FrameContext&) {}
